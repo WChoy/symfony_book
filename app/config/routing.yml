@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+contact:
+    path:     /contact2
+    defaults: { _controller: AppBundle:Blog:firefoxContact }
+    condition: "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
