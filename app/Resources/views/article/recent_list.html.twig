@@ -1,0 +1,12 @@
+{# app/Resources/views/article/recent_list.html.twig #}
+{% for article in articles %}
+    <li class="article">
+        <a href="/article/{{ article.slug }}">
+            {{ article.title }}
+        </a>
+        or
+        <a href="{{ path('article_show', {'slug': article.slug, '_format': 'pdf'}) }}">
+            {{ article.title|raw }}
+        </a>
+    </li>
+{% endfor %}

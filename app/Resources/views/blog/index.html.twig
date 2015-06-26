@@ -1,0 +1,28 @@
+{# app/Resources/views/blog/index.html.twig #}
+
+{% extends 'base.html.twig' %} {# use ::base.html.twig, path relative to app/Resources/views #}
+
+{# define/override block title (Welcome!) #}
+{% block title %}My cool blog posts{% endblock %}
+
+{# define/override block body #}
+{% block body %}
+    {% for entry in blog_entries %}
+        <h2>{{ entry.title }}</h2>
+        <p>{{ entry.body }}</p>
+    {% endfor %}
+{% endblock %}
+
+{% block navbar %}
+    {{ parent() }}
+    <li><a href="/lucky">Lucky Numbers</a></li>
+{% endblock %}
+
+{% block logo %}
+    <img src="{{ asset('images/logo.png', absolute=true) }}" alt="Symfony!" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/blog.css', version=null) }}" rel="stylesheet" />
+{% endblock %}

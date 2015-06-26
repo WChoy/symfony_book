@@ -22,13 +22,22 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
+        # Asynchronous Content with hinclude.js .. http://stackoverflow.com/questions/29392038/symfony-configure-twig-template-for-hinclude
+        hinclude_default_template: ":default:hinclude.html.twig"
+        # hinclude_default_template: "::hinclude.html.twig"
+        # hinclude_default_template: ::hinclude.html.twig
+        # hinclude_default_template: "hinclude.html.twig"
+        # hinclude_default_template: hinclude.html.twig
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
-    fragments:       ~
+    # Asynchronous Content with hinclude.js, When using a controller instead of a URL
+    fragments: { path: /_fragment }
+    # fragments:       ~
+
     http_method_override: true
 
 # Twig Configuration

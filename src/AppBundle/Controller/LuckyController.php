@@ -59,14 +59,14 @@ class LuckyController extends Controller
       $numbers[] = rand(0, 100);
     }
     $numbersList = implode(', ', $numbers);
-//    $html = $this->container->get('templating')->render(
-//      'lucky/number.html.twig',
-//      array('luckyNumberList' => $numbersList)
-//    );
-    $html = $this->render(
+    $html = $this->container->get('templating')->render(
       'lucky/number.html.twig',
       array('luckyNumberList' => $numbersList)
     );
+//    $html = $this->render(
+//      'lucky/number.html.twig',
+//      array('luckyNumberList' => $numbersList)
+//    );
     return new Response($html);
   }
 

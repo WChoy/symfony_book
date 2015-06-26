@@ -1,0 +1,18 @@
+{# app/Resources/views/article/list.html.twig #}
+{% extends 'layout.html.twig' %}
+
+{{  dump(articles) }}
+
+{% block body %}
+    <h1>Recent Articles<h1>
+    {% for article in articles %}
+        {{ include('article/article_details.html.twig',
+            { 'article': article })
+        }}
+    {% endfor %}
+
+    {# Asynchronous Content with hinclude.js ??????? #}
+    {{ render_hinclude(controller('AppBundle:Article:recentArticles'),  {
+        'default': 'default/content.html.twig'
+    }) }}
+{% endblock %}
